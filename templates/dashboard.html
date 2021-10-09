@@ -5,12 +5,12 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Dashboard - {{name}}</title>
-  <style>
+	<style>
 		body {
 			padding: 0px;
 			margin: 0px;
 			font-family: Helvetica;
-      /*background-color:grey;*/
+			/*background-color:grey;*/
 		}
 
 		.navbar {
@@ -23,7 +23,8 @@
 			align-items: center;
 			justify-content: space-between;
 		}
-    .loginbutton {
+
+		.loginbutton {
 			display: inline-block;
 			padding: .75rem 1.25rem;
 			border-radius: 10rem;
@@ -44,33 +45,94 @@
 				width: 100%;
 			}
 		}
-    .logotitle {
-			font-size: 1.5em;
-      font-weight: bold;
-      font-family: Monaco;
-		}
-    .container{
-      position: relative;
-      width: 1200px;
-      height: 300px;
-      margin: 240px;
-    }
-    .container .box{
-      position: relative;
-      width: calc(400px-30px);
-      height: calc(300px-30px);
-      background: #000;
-      margin: 15px;
-      box-sizing: border-box;
-      overflow: hidden;
-      border-radius: 10px
-    }
-    .profile_image{
-      border-radius: 50%;
-      width:50px;
-    }
 
-  </style>
+		.logotitle {
+			font-size: 1.5em;
+			font-weight: bold;
+			font-family: Monaco;
+		}
+
+		.container {
+			position: relative;
+			width: 1200px;
+			height: 300px;
+			margin: 240px;
+		}
+
+		.container .box {
+			position: relative;
+			width: calc(400px-30px);
+			height: calc(300px-30px);
+			background: #000;
+			margin: 15px;
+			box-sizing: border-box;
+			overflow: hidden;
+			border-radius: 10px
+		}
+
+		.profile_image {
+			border-radius: 50%;
+			width: 100px;
+		}
+
+		.doctors-details {
+			display: flex;
+			flex-direction: row;
+			padding: 10px;
+			min-hight: 5em;
+			justify-content: space-between;
+			align-items: center;
+			gap: 20px;
+			padding: 50px;
+			border-bottom: 2px solid #d1d1d1;
+
+		}
+
+		.NameSpeciality {
+			justify-content: center;
+			display: flex;
+			flex-direction: column;
+			padding: 10px;
+		}
+
+		.name {
+			color: black;
+			font-size: 2em;
+			font-weight: bold;
+			font-family: Helvetica;
+		}
+
+		.speciality {
+			color: orange;
+			font-size: 1.15em;
+			font-weight: bold;
+			font-family: Helvetica;
+      text-align: left;
+		}
+
+		.sort {
+			justify-self: right;
+		}
+    .name_img{
+      display:flex;
+      flex-direction: row;
+      gap:15px;
+    }
+    .hospital_name{
+      text-align: left;
+      font-weight: bold;
+      font-size: 1.35em;
+      color: #787774;
+    }
+    .inputfld_select{
+      
+      padding:15px;
+      border-radius:10px;
+      font-size:1em;
+      border:0px solid black;
+      background-color:white;
+    }
+	</style>
 </head>
 
 <body>
@@ -79,12 +141,16 @@
     <div class="logotitle"><button onclick="redirect()" class="loginbutton">New Prescription</button></div>
   </div>
  <div class = "doctors-details">
-   <img class = "profile_image" src="../static/doctor.png">
-   <div class="NameSpeciality">
-     <div class="name">{{name}}</div>
-     <div class="speciality"></div>
+   <div class = "name_img">
+     <img class = "profile_image" src="../static/doctor.png">
+    <div class="NameSpeciality">
+      <div class="name">Aryan Agrawal</div>
+      <div class="hospital_name">NPS Koramangala</div>
+      <div class="speciality">Anesthesiologist</div>
+    </div>
+   
    </div>
-   <div class="sort"></div>
+   <div class="sort">blah</div>
   </div>
 </body>
 </html>

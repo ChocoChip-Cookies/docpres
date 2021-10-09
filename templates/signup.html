@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
+  <title>Sign Up</title>
   <style>
     body{
       margin:0px;
@@ -20,7 +20,7 @@
 			background-attachment: fixed;
       font-family: Helvetica;
     }
-    .box{
+    .box {
       max-width: 80%;
       min-width:30%;
 			display: flex;
@@ -35,9 +35,26 @@
 			text-shadow: 0px 0px 2px white;
 			gap: 10px;
     }
+    form{
+      width:100%;
+      display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+      gap: 10px;
+    }
     .inputfld{
-      width:70%;
-      padding:10px;
+      width:80%;
+      padding:15px;
+      border-radius:10px;
+      font-size:1em;
+      border:0px solid black;
+      background-color:white;
+      margin:5px;
+    }
+    .inputfld_select{
+      width:85%;
+      padding:15px;
       border-radius:10px;
       font-size:1em;
       border:0px solid black;
@@ -63,14 +80,35 @@
 <body>
   <div class="box">
     <h1>Signup</h1>
-    <input id="name" placeholder="Enter Name" class="inputfld">
-    <button class="submit" onclick="goDoctor()">Create Profile</button>
+    <form action="#">
+
+    <input type="text" id="name" placeholder="Enter Name" class="inputfld" required>
+    <input type="text" id="hospital" placeholder="Enter Hospital Name" class="inputfld" required>
+    <select name="Proficiency" class="inputfld_select">
+      <option value="Cardiology">Choose Speciality</option>
+      <option value="Cardiology">Cardiology</option>
+      <option value="Pediatrics">Pediatrics</option>
+      <option value="Orthopedic">Orthopedic</option>
+      <option value="Gynecology">Gynecology</option>
+      <option value="Ordiology">Audiology</option>
+      <option value="Dental Care">Dental care</option>
+      <option value="ENT">ENT</option>
+      <option value="Psychology">Psychology</option>
+      <option value="Radiology">Radiology</option>
+      <option value="Pulmonology">Pulmonology</option>
+      <option value="Oncology">Oncology</option>
+      <option value="Neurology">Neurology</option>
+      <option value="Anesthisiology">Anesthisiology</option>
+
+    </select>
+    <input type="email" placeholder="Enter email" id="email" class="inputfld" required>
+    <button class="submit" type="submit" >Create Profile</button>
+    </form>
   </div>
   <script>
     function goDoctor(){
-      var name=document.getElementById("name").value;
-      var url="{{url_for('makeDoctor', name='thename')}}".replace("thename",name);
-      location.href=url;
+      
+      alert("submit")
     }
   </script>
 </body>

@@ -56,7 +56,7 @@
       box-shadow:0px 0px 5px #5ad651;
       cursor:pointer;
     }
-    .new{
+    /*.new{
       background-color:yellow;
       padding:10px;
       color:black;
@@ -68,6 +68,12 @@
     .new:hover{
       box-shadow:0px 0px 5px #5ad651;
       cursor:pointer;
+    }*/
+    a{
+      color:#d4d4d4;
+      text-shadow:0px 0px 0px;
+      text-decoration: underline;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -76,13 +82,20 @@
     <h1>Login</h1>
     <input id="name" placeholder="Enter Name" class="inputfld">
     <button class="submit" onclick="goDashboard()">Enter Dashboard</button>
-    <button class="new" onclick="goDashboard()">New here? Sign-up now</button>
+    <a class="new" onclick="goSignup()">New here? Sign-up now</button>
   </div>
   <script>
     function goDashboard(){
       var name=document.getElementById("name").value;
-      var url="{{url_for('dashboard', name='thename')}}".replace("thename",name);
-      location.href=url;
+      if (name==""){
+        alert("Please enter name")
+      }else{
+        var url="{{url_for('dashboard', name='thename')}}".replace("thename",name);
+        location.href=url;
+      }
+    }
+    function goSignup(){
+      location.href="{{url_for('signup')}}"
     }
   </script>
 </body>
