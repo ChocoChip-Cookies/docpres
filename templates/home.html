@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DocPress</title>
+	<style>
+		body {
+			padding: 0px;
+			margin: 0px;
+			font-family: Helvetica;
+		}
+
+		.navbar {
+			min-height: 2em;
+			padding: 1em;
+			background-color: #2c3542;
+			color: white;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.logotitle {
+			font-size: 1.5em;
+		}
+
+		.logotitle:hover {
+			color: #e3e4e6;
+			cursor: pointer:
+		}
+
+		.loginbutton {
+			display: inline-block;
+			padding: .75rem 1.25rem;
+			border-radius: 10rem;
+			background-color: orange;
+			color: #fff;
+			text-transform: uppercase;
+			font-size: 1rem;
+			letter-spacing: .15rem;
+			transition: all .3s;
+			position: relative;
+			overflow: hidden;
+			z-index: 1;
+		}
+
+		.loginbutton &:hover {
+			color: ##ffa500;
+			&:before {
+				width: 100%;
+			}
+		}
+
+		.loginbutton_bottom {
+			display: inline-block;
+			padding: .75rem 1.25rem;
+			border-radius: 10rem;
+			background-color: orange;
+			color: #fff;
+			text-transform: uppercase;
+			font-size: 1rem;
+			letter-spacing: .15rem;
+			transition: all .3s;
+			/*position: relative;
+			overflow: hidden;
+			z-index: 1;*/
+		}
+
+		.loginbutton_bottom &:hover {
+			color: ##ffa500;
+			&:before {
+				width: 100%;
+			}
+		}
+
+		.main {
+			width: 100%;
+			min-height: 100vh;
+			padding: 0px;
+			margin: 0px;
+			justify-content: center;
+			align-items: center;
+			background-image: url("../static/pres.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-color: #cccccc;
+		}
+
+		.bg-text {
+			color: black;
+			font-size: 2rem;
+			font-weight: bold;
+			/*position: absolute;
+			top: 40%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 2;
+			width: 80%;
+			padding: 20px;
+			text-align: center;*/
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+		}
+
+		.cont {
+			max-width: 80%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			border-radius: 40px;
+			padding: 30px;
+			background-color: #2c3542;
+			color: white;
+			box-shadow: 0px 0px 20px black;
+			text-shadow: 0px 0px 2px white;
+			gap: 10px;
+		}
+
+		.p1 {
+			display: flex;
+			flex-direction: row;
+			color: black;
+			max-width: 100%;
+			min-height: 70vh;
+			align-items: center;
+			justify-content: flex-start;
+			background-image: url("../static/p1.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			font-size: 1.5rem;
+			line-height: 2em;
+			padding: 20px;
+		}
+
+		.leftText {
+			max-width: 40vw;
+			min-height: 50vh;
+			display: flex;
+			align-items: left;
+			justify-content: center;
+			flex-direction: column;
+			margin: 0px;
+			border-radius: 40px;
+			padding: 30px;
+			marding-left: 50px !important;
+			background-color: #2c3542;
+			color: white;
+			box-shadow: 0px 0px 20px black;
+			text-shadow: 0px 0px 2px white;
+      padding-right:10px;
+		}
+
+		.p2 {
+			display: flex;
+			flex-direction: row;
+			color: black;
+			max-width: 100%;
+			min-height: 70vh;
+			align-items: center;
+			justify-content: space-between;
+			background-color: #2c3542;
+			background-repeat: no-repeat;
+			background-size: cover;
+			font-size: 1.5rem;
+			line-height: 2em;
+			padding: 20px;
+      
+		}
+    .rightText {
+			max-width: 40vw;
+			min-height: 50vh;
+			display: flex;
+			align-items: left;
+			justify-content: center;
+			flex-direction: column;
+			margin: 0px;
+			padding: 30px;
+			marding-left: 50px !important;
+			color: white;
+      padding-right:10px;
+		}
+
+		.empty {
+			max-width: 40vw;
+			min-height: 50vh;
+			display: flex;
+			align-items: left;
+			justify-content: center;
+			flex-direction: column;
+			margin: 0px;
+			marding-left: 50px !important;
+			background-color: #2c3542;
+			color: white;
+		}
+
+		.img2 {
+			width: 40vw;
+			height: 40vw;
+			border-radius: 20px;
+			box-shadow: 1vw 2vh 6vw rgb(247 242 242 / 31%);
+			margin-top: 5px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="navbar">
+		<div class="logotitle"><b>DocPress</b></div>
+    <div class="logotitle"><button onclick="redirect()" class="loginbutton">Login</button></div>
+  </div>
+  <div class="main">
+    <div class="bg-text">
+      <div class="cont">
+        <h1>DocPres</h1>
+        <div style = "font-size: 1.5rem!important;">Faster the prescription.. Faster the recovery...</div>
+        <button onclick="redirect()" class="loginbutton_bottom">Join us!</button>
+      </div>
+    </div>
+  </div>
+  <div class = "p1">
+    <div class = "leftText">
+        <h1 style = "margin-bottom: 0.2;">Faster Prescriptions </h1>
+        <div style = "margin-top: 0;"> Ever spent a lot of time writing prescriptions?</div>
+        <div> Not anymore! DocPress enables you to write prescriptions in seconds...</div>
+    </div>
+  </div>
+  <div class = "p2">
+    <div class = leftText>
+      <img src="../static/pres3.png" class="img2">
+    </div>
+    <div class = "rightText">
+      <h1 style = "margin-bottom: 0.2;">Easy to use!</h1>
+        <div style = "margin-top: 0;"> Now you can make prescriptions using just a few clicks...</div>
+    </div>
+  </div>
+  <script>
+    function redirect(){
+      //alert("Button pressed");
+      location.href="{{url_for('login')}}"
+    }
+  </script>
+</body>
+</html>

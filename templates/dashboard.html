@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dashboard - {{name}}</title>
+  <style>
+		body {
+			padding: 0px;
+			margin: 0px;
+			font-family: Helvetica;
+      /*background-color:grey;*/
+		}
+
+		.navbar {
+			min-height: 2em;
+			padding: 1em;
+			background-color: #2c3542;
+			color: orange;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+		}
+    .loginbutton {
+			display: inline-block;
+			padding: .75rem 1.25rem;
+			border-radius: 10rem;
+			background-color: orange;
+			color: #fff;
+			text-transform: uppercase;
+			font-size: 1rem;
+			letter-spacing: .15rem;
+			transition: all .3s;
+			position: relative;
+			overflow: hidden;
+			z-index: 1;
+		}
+
+		.loginbutton &:hover {
+			color: ##ffa500;
+			&:before {
+				width: 100%;
+			}
+		}
+    .logotitle {
+			font-size: 1.5em;
+      font-weight: bold;
+      font-family: Monaco;
+		}
+    .container{
+      position: relative;
+      width: 1200px;
+      height: 300px;
+      margin: 240px;
+    }
+    .container .box{
+      position: relative;
+      width: calc(400px-30px);
+      height: calc(300px-30px);
+      background: #000;
+      margin: 15px;
+      box-sizing: border-box;
+      overflow: hidden;
+      border-radius: 10px
+    }
+    .profile_image{
+      border-radius: 50%;
+      width:50px;
+    }
+
+  </style>
+</head>
+
+<body>
+	<div class="navbar">
+		<div class="logotitle"><b>Dashboard</b></div>
+    <div class="logotitle"><button onclick="redirect()" class="loginbutton">New Prescription</button></div>
+  </div>
+ <div class = "doctors-details">
+   <img class = "profile_image" src="../static/doctor.png">
+   <div class="NameSpeciality">
+     <div class="name">{{name}}</div>
+     <div class="speciality"></div>
+   </div>
+   <div class="sort"></div>
+  </div>
+</body>
+</html>
