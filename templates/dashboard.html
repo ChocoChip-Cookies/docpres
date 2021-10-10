@@ -136,7 +136,7 @@
       display: flex;
       flex-wrap: wrap;
       padding:20px;
-      justify-content:space-between;
+      justify-content:left;
     }
     .flexbox-item{
       display: flex;
@@ -151,7 +151,12 @@
       border: 3px solid #333;
       background-color: #f5f5f5 ;
       border-radius:10px;
-      overflow-y:auto;
+      transition:all 0.5s;
+      
+    }
+    .flexbox-item:hover{
+      box-shadow:0px 0px 20px black;
+      cursor:pointer;
     }
     .name_patient{
       text-align: left;
@@ -198,7 +203,23 @@
     </select>
   </div>
   <div class="flexbox_container">
-    <div class="flexbox-item">
+    {% for pres in preshist %}
+    <div class="flexbox-item" onclick="location.href='{{url_for('printable',pid=pres[0],email=email)}}';">
+        <div class = "line1">
+          <div class="name_patient">Name:  </div>
+          <div class="patient">{{pres[1]}}</div>
+        </div>
+        <div class = "line1">
+          <div class="name_patient">Date:  </div>
+          <div class="patient">{{pres[8]}}</div>
+        </div>
+        <div class = "line1">
+          <div class="name_patient">Diagnosis:  </div>
+          <div class="patient">{{pres[6]}}</div>
+        </div>
+    </div>
+    {% endfor %}
+    <!--div class="flexbox-item">
         <div class = "line1">
           <div class="name_patient">Name:  </div>
           <div class="patient">temp patient</div>
@@ -239,27 +260,18 @@
           <div class="name_patient">Diagnosis:  </div>
           <div class="patient">temp diag</div>
         </div>
-    </div>
-    <div class="flexbox-item">
-        <div class = "line1">
-          <div class="name_patient">Name:  </div>
-          <div class="patient">temp patient</div>
-        </div>
-        <div class = "line1">
-          <div class="name_patient">Date:  </div>
-          <div class="patient">temp date</div>
-        </div>
-        <div class = "line1">
-          <div class="name_patient">Diagnosis:  </div>
-          <div class="patient">temp diag</div>
-        </div>
-    </div>
+    </div-->
 
     </div>
   </div>
   <script>
     function redirectPres(){
       location.href="{{url_for('newpres',email=email)}}";
+    }
+    function redirect(pid){
+      alert("PID is"+pid)
+      location.href="{{url_for('printable',pid=thep,email=email)}}".replace("thep",pid)
+
     }
   </script>
 </body>

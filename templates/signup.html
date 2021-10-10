@@ -96,8 +96,8 @@
     <h1>Signup</h1>
     <form action="{{url_for('makeDoctor')}}" method="POST">
 
-    <input type="text" id="name" placeholder="Enter Name" class="inputfld" name="name" required>
-    <input type="text" id="hospital" placeholder="Enter Hospital Name" class="inputfld" name="hospital"required>
+    <input type="text" id="name" placeholder="Enter Name" class="inputfld" name="name" autocomplete="off" required>
+    <input type="text" id="hospital" placeholder="Enter Hospital Name" class="inputfld" name="hospital" autocomplete="off" required>
     <select name="proficiency" class="inputfld_select">
       <option value="Cardiology">Choose Speciality</option>
       <option value="Cardiology">Cardiology</option>
@@ -115,7 +115,7 @@
       <option value="Anesthisiology">Anesthisiology</option>
 
     </select>
-    <input type="email" placeholder="Enter email" name="email" id="email" class="inputfld" required>
+    <input type="email" placeholder="Enter email" name="email" id="email" class="inputfld" autocomplete="off" required>
     <button class="loginbutton" type="submit" >Create Profile</button>
     </form>
   </div>

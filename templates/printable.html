@@ -1,11 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Prescription</title>
+	<style>
+		/* ROOT FONT STYLES */
+
+* {
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+
+
+/* ==== GRID SYSTEM ==== */
+.container {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row {
+  position: relative;
+  width: 100%;
+}
+
+.row [class^="col"] {
+  float: left;
+ }
+
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 18.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 71.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+/* Custom */
+
+  .container{
+    min-height:84px;
+    border:1px solid black;
+    max-width:420px;
+    margin: 0 auto;
+    margin-top:40px;
+  }
+  header{
+    min-height:83px;
+    border-bottom:1px solid black;
+    
+  }
+
+.doc-details{
+    margin-top:5px;
+  margin-left:15px;
+  
+}
+  
+.clinic-details{
+  margin-top:5px;
+  margin-left:15px;
+}
+  .doc-name{
+    font-weight:bold;
+    margin-bottom:5px;
+    
+  }
+  .doc-meta{
+    font-size:9px;
+  }
+.datetime{
+  font-size:10px;
+  margin-top:5px;
+
+}
+
+.row.title{
+ font-weight:bold;
+  padding-left:10px;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+.prescription{
+  min-height:380px;
+  margin-bottom:10px;
+  padding: 10px;
+}
+table{
+  text-align:left;
+  width:90%;
+  min-height:25px;
+}
+table th{
+  font-size:8px;
+  font-weight:bold;
+}
+
+table tr{
+  margin-top:20px;
+}
+table td{
+  font-size:7px;
+  
+}
+
+.instruction{
+  font-size:6px;
+}
+.rximage{
+	width: 40px;
+}
+.headings{
+	font-size: small;
+}
+.thclass{
+	font-size:11px;
+}
+.tdclass{
+	font-size:11px;
+}
+</style>
 </head>
 <body>
-  
+	<div class="container">
+		<header class="row">
+		  <div class="col-10">
+			<div class="doc-details">
+			  <p class="doc-name">{{hospital}}</p>
+			  <img class = "rximage" src = "{{url_for('static',filename='rx.jpg')}}">
+			</div>
+		  </div>
+		  <div class="col-2 datetime">
+			<p>Date: {{date}}</p>
+			
+      <p>PresriptionID:{{pid}} </p>
+		  </div>
+		</header>
+
+		<div class="prescription">
+			<div class = "patient_info">
+				<h2 class = "headings">Patient info:</h2>
+				<p style="font-size:10px;"><b>Name: </b>{{name}}</p>
+				<p style="font-size:10px;"><b>Age: </b> {{age}}</p>
+			</div>
+			<br>
+			<hr>
+			<div class = "Symptoms">
+				<h2 class = "headings">Symptoms:</h2>
+				<p style="font-size: smaller;">{{symptoms}}</p>
+			</div>
+			<br>
+			<hr>
+			<div class = "diagnosis">
+				<h2 class = "headings">Diagnosis:</h2>
+				<p style="font-size: smaller;">{{diagnosis}}</p>
+			</div>
+			<br>
+			<hr>
+			<h2 class = "headings">Medicines:</h2>
+			<div class = ""></div>  
+			<table>
+		 <tr>
+		  
+		  <th class = "thclass">Type</th>
+		  <th class = "thclass">Name of the drug</th>
+		  <th class = "thclass">Dosage</th>
+		  <th class = "thclass">Frequency</th>
+		  <th class = "thclass">Duration</th>
+		  <th class = "thclass">Time</th>
+		 </tr>
+     {% for med in medlist %}
+		 <tr>
+		  
+		  <td class = "tdclass">{{med[1]}}</td>
+		  <td class = "tdclass">{{med[0]}}</td>
+		  <td class = "tdclass">{{med[2]}}</td>
+		  <td class = "tdclass">{{med[4]}}</td>
+		  <td class = "tdclass">{{med[5]}}</td>
+		  <td class = "tdclass">{{med[3]}}</td>
+		 </tr>
+     {% endfor %}
+			   <!--tr>
+		  <td class = "tdclass">Lotion</td>
+		  <td class = "tdclass">Brufen</td>
+		  <td class = "tdclass">400 mg</td>
+		  <td class = "tdclass">1 - 0 - 1</td>
+		  <td class = "tdclass">10 days</td>
+		  <td class = "tdclass">After food</td>
+		 </tr>
+			  
+					   <tr>
+		  <td class = "tdclass">Syrub</td>
+		  <td class = "tdclass">Brufen</td>
+		  <td class = "tdclass">400 mg</td>
+		  <td class = "tdclass">1 - 0 - 1</td>
+		  <td class = "tdclass">10 days</td>
+		  <td class = "tdclass">After food</td>
+		 </tr>
+					   <tr>
+		  <td class = "tdclass">Oil</td>
+		  <td class = "tdclass">Brufen</td>
+		  <td class = "tdclass">400 mg</td>
+		  <td class = "tdclass">1 - 0 - 1</td>
+		  <td class = "tdclass">10 days</td>
+		  <td class = "tdclass">After food</td>
+		 </tr-->
+		</table>
+		<br>
+		<hr>
+		<div class = "Testrecommended">
+			<h2 class = "headings">Tests recommended:</h2>
+			<p style="font-size:10px;">{{test}}</p>
+		</div>
+		<br>
+		<hr>
+	  
+		</div>
+		<p style="font-size:12px;text-align:right;padding-bottom:15px;padding-right:25px;">- Signature of the doctor</p>
+		<p style="font-size:12px;text-align:right;padding-bottom:15px;padding-right:25px;">- __________________________</p>
+		<p style="font-size:10px;text-align:center;padding-bottom:20px;">The greatest wealth is health</p>
+	  </div>
 </body>
 </html>

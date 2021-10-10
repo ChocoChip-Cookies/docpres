@@ -116,24 +116,25 @@
   <form class="myForm" action="{{url_for('makepres',email=email)}}" method="POST">
     <div class="grp1">
       <div class="label">Name of Patient:</div>
-      <input type="text" name="pname" class="inputfld" placeholder="Patient Name">
+      <input type="text" name="pname" class="inputfld" placeholder="Patient Name" autocomplete="off" required>
     </div>
     <div class="grp1">
       <div class="label">Date of Birth:</div>
-      <input type="date" name="dob" class="inputfld" ">
+      <input type="date" name="dob" class="inputfld" required>
     </div>
     <div class="grp1">
       <div class="label">Symptoms:</div>
-      <textarea type="text" name="syptoms" class="inputfld" placeholder="Enter Symptoms"></textarea>
+      <textarea type="text" name="symptoms" class="inputfld" placeholder="Enter Symptoms" autocomplete="off" required></textarea>
     </div>
       <div class="grp1">
         <div class="label">Diagnosis:</div>
-        <textarea type="text" name="diagnosis" class="inputfld" placeholder="Enter Diagnosis"></textarea>
+        <textarea type="text" name="diagnosis" class="inputfld" placeholder="Enter Diagnosis" autocomplete="off" required></textarea>
       </div>
         <div class="grp1">
         <div class="label">Tests Recommended:</div>
-        <textarea type="text" name="diagnosis" class="inputfld" placeholder="Prescribe Tests"></textarea>
+        <textarea type="text" name="test" class="inputfld" placeholder="Prescribe Tests" autocomplete="off" required></textarea>
       </div>
+      <input type="hidden" name="numofmed" value="1" id="numofmed">
     
     <h2>Medicines</h2>
     <div class="medecinelst" id="medecinelst">
@@ -141,32 +142,49 @@
         <h3>Medicine #1</h3>
         <div class="grp1">
           <div class="label">Name of Medicine:</div>
-          <input type="text" name="med1name" class="inputfld" placeholder="Medicine Name">
+          <input type="text" name="med1name" class="inputfld" placeholder="Medicine Name" autocomplete="off" required>
         </div>
         <div class="grp1">
+          <div class="label">Type of Medecine:</div>
+          <select name="med1type" class="inputfld" required>
+            <option value="afterFood">Select Type of Medicine</option>
+            <option value="Tablet">Tablet</option>
+            <option value="Capsule">Capsule</option>
+            <option value="Syrup">Syrup</option>
+            <option value="Lotion">Lotion</option>
+            <option value="Inhaler">Inhaler</option>
+            <option value="Balm">Balm</option>
+            <option value="Injection">Injection</option>
+            
+          </select>        </div>
+        <div class="grp1">
           <div class="label">Dosage:</div>
-          <input type="text" name="med1dosage" class="inputfld" placeholder="Dosage">
+          <input type="text" name="med1dosage" class="inputfld" placeholder="Dosage" autocomplete="off" required>
         </div>
         <div class="grp1">
           <div class="label">Timing</div>
-          <select name="med1timing" class="inputfld">
-            <option value="afterFood">Select Timing</option>
-            <option value="afterFood">After Food</option>
-            <option value="beforeFood">Before Food</option>
+          <select name="med1timing" class="inputfld" required>
+            <option value="After Food">Select Timing</option>
+            <option value="After Food">After Food</option>
+            <option value="Before Food">Before Food</option>
           </select>
         </div>
         <div class="grp1">
           <div class="label">Frequency</div>
-          <select name="med1frequency" class="inputfld">
-            <option value="afterFood">Select Frequecy</option>
-            <option value="111">1-1-1</option>
-            <option value="110">1-1-0</option>
-            <option value="101">1-0-1</option>
-            <option value="100">1-0-0</option>
-            <option value="001">0-0-1</option>
-            <option value="010">0-1-0</option>
-            <option value="011">0-1-1</option>
+          <select name="med1frequency" class="inputfld" required>
+            <option value="1-1-1">Select Frequecy</option>
+            <option value="1-1-1">1-1-1</option>
+            <option value="1-1-0">1-1-0</option>
+            <option value="1-0-1">1-0-1</option>
+            <option value="1-0-0">1-0-0</option>
+            <option value="0-0-1">0-0-1</option>
+            <option value="0-1-0">0-1-0</option>
+            <option value="0-1-1">0-1-1</option>
           </select>
+        </div>
+        <div class="grp1">
+          <div class="label">Duration:</div>
+          <input type="text" name="med1duration" class="inputfld" placeholder="Duration" autocomplete="off" required>
         </div>
       </div>
     </div>
@@ -174,18 +192,23 @@
     <button type="submit" onclick="save()" class="loginbutton">Save</button>
   </form>
   <script>
-    var n=2
+    var n=1
     function addMed(){
+      n=n+1;
       el=document.createElement('div');
       el.classList.add('medicinegrp');
       html='<h3>Medicine #'+n+'</h3><div class="grp1"><div class="label">Name of Medicine:</div><input type="text" name="med'
-      html+=n+'name" class="inputfld" placeholder="Medicine Name"></div><div class="grp1"><div class="label">Dosage:</div><input type="text" name="med'
-      html+=n+'dosage" class="inputfld" placeholder="Dosage"></div><div class="grp1"><div class="label">Timing</div><select name="med'
+      html+=n+'name" class="inputfld" placeholder="Medicine Name" autocomplete="off" required></div><div class="grp1"><div class="label">Type of Medecine:</div><select name="med'
+      html+=n+'type" class="inputfld" required><option value="afterFood">Select Type of Medicine</option><option value="Tablet">Tablet</option><option value="Capsule">Capsule</option><option value="Syrup">Syrup</option><option value="Lotion">Lotion</option><option value="Inhaler">Inhaler</option><option value="Balm">Balm</option><option value="Injection">Injection</option></select>        </div><div class="grp1"><div class="label">Dosage:</div><input type="text" name="med'
+
+      html+=n+'dosage" autocomplete="off" class="inputfld" placeholder="Dosage"></div><div class="grp1"><div class="label">Timing</div><select name="med'
       html+=n+'timing" class="inputfld"><option value="afterFood">Select Timing</option><option value="afterFood">After Food</option><option value="beforeFood">Before Food</option></select></div><div class="grp1"><div class="label">Frequency</div><select name="med'
-      html+=n+'frequency" class="inputfld"><option value="afterFood">Select Frequecy</option><option value="111">1-1-1</option><option value="110">1-1-0</option><option value="101">1-0-1</option><option value="100">1-0-0</option><option value="001">0-0-1</option><option value="010">0-1-0</option><option value="011">0-1-1</option></select></div></div>'
+      html+=n+'frequency" class="inputfld" required><option value="afterFood">Select Frequecy</option><option value="111">1-1-1</option><option value="110">1-1-0</option><option value="101">1-0-1</option><option value="100">1-0-0</option><option value="001">0-0-1</option><option value="010">0-1-0</option><option value="011">0-1-1</option></select></div><div class="grp1"><div class="label">Duration:</div><input type="text" name="med'
+      html+=n+'duration" class="inputfld" placeholder="Duration" autocomplete="off" required></div>'
       el.innerHTML=html;
       document.getElementById("medecinelst").appendChild(el);
-      n=n+1;
+      
+      document.getElementById("numofmed").value=n;
     }
   </script>
 </body>
