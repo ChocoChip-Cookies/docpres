@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <style>
+    .loginbutton {
+			display: inline-block;
+			padding: .75rem 1.25rem;
+			border-radius: 10rem;
+			background-color: orange;
+			color: #fff;
+			text-transform: uppercase;
+			font-size: 1rem;
+			letter-spacing: .15rem;
+			transition: all .3s;
+			position: relative;
+			overflow: hidden;
+			z-index: 1;
+		}
     body{
       margin:0px;
       padding:0px;
@@ -80,17 +94,17 @@
 <body>
   <div class="box">
     <h1>Login</h1>
-    <input id="name" placeholder="Enter Name" class="inputfld">
-    <button class="submit" onclick="goDashboard()">Enter Dashboard</button>
+    <input type="email" id="name" placeholder="Enter Email" class="inputfld">
+    <button class="loginbutton" type="submit" onclick="goDashboard()">Enter Dashboard</button>
     <a class="new" onclick="goSignup()">New here? Sign-up now</button>
   </div>
   <script>
     function goDashboard(){
-      var name=document.getElementById("name").value;
-      if (name==""){
-        alert("Please enter name")
+      var email=document.getElementById("name").value;
+      if (email==""){
+        alert("Please enter mail ID")
       }else{
-        var url="{{url_for('dashboard', name='thename')}}".replace("thename",name);
+        var url="{{url_for('dashboard', email='themail',page=2)}}".replace("themail",email);
         location.href=url;
       }
     }

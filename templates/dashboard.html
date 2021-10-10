@@ -132,25 +132,135 @@
       border:0px solid black;
       background-color:white;
     }
+    .flexbox_container{
+      display: flex;
+      flex-wrap: wrap;
+      padding:20px;
+      justify-content:space-between;
+    }
+    .flexbox-item{
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      gap: 1px;
+      max-width: 300px;
+      height: 250px;
+      flex-wrap: wrap;
+      flex-grow: 1;
+      margin: 10px;
+      border: 3px solid #333;
+      background-color: #f5f5f5 ;
+      border-radius:10px;
+      overflow-y:auto;
+    }
+    .name_patient{
+      text-align: left;
+      font-weight: bold;
+      font-size: 1.35em;
+      color: black;
+      padding: 20px;
+    }
+    .patient{
+      text-align: left;
+      font-weight: bold;
+      font-size: 1.35em;
+      color: #e3a600;
+      padding: 15px;
+    }
+    .line1{
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+    }
 	</style>
 </head>
 
 <body>
 	<div class="navbar">
 		<div class="logotitle"><b>Dashboard</b></div>
-    <div class="logotitle"><button onclick="redirect()" class="loginbutton">New Prescription</button></div>
+    <div class="logotitle"><button onclick="redirectPres()" class="loginbutton">New Prescription</button></div>
   </div>
  <div class = "doctors-details">
    <div class = "name_img">
-     <img class = "profile_image" src="../static/doctor.png">
+     <img class = "profile_image" src="{{url_for('static',filename='doctor.png')}}">
     <div class="NameSpeciality">
-      <div class="name">Aryan Agrawal</div>
-      <div class="hospital_name">NPS Koramangala</div>
-      <div class="speciality">Anesthesiologist</div>
+      <div class="name">{{name}}</div>
+      <div class="hospital_name">{{hospital}}</div>
+      <div class="speciality">{{proficiency}}</div>
     </div>
    
    </div>
-   <div class="sort">blah</div>
+   <select name="Sort" class="inputfld_select">
+      <option value="asc_name">Date Ascending</option>
+      <option value="des_date">Date Descending</option>
+      <option value="asc_name">Name Ascending</option>
+      <option value="des_name">Name Descending</option>
+    </select>
   </div>
+  <div class="flexbox_container">
+    <div class="flexbox-item">
+        <div class = "line1">
+          <div class="name_patient">Name:  </div>
+          <div class="patient">temp patient</div>
+        </div>
+        <div class = "line1">
+          <div class="name_patient">Date:  </div>
+          <div class="patient">temp date</div>
+        </div>
+        <div class = "line1">
+          <div class="name_patient">Diagnosis:  </div>
+          <div class="patient">temp diag</div>
+        </div>
+    </div>
+    <div class="flexbox-item">
+        <div class = "line1">
+          <div class="name_patient">Name:  </div>
+          <div class="patient">temp patient</div>
+        </div>
+        <div class = "line1">
+          <div class="name_patient">Date:  </div>
+          <div class="patient">temp date</div>
+        </div>
+        <div class = "line1">
+          <div class="name_patient">Diagnosis:  </div>
+          <div class="patient">temp diag</div>
+        </div>
+    </div>
+    <div class="flexbox-item">
+        <div class = "line1">
+          <div class="name_patient">Name:  </div>
+          <div class="patient">temp patient</div>
+        </div>
+        <div class = "line1">
+          <div class="name_patient">Date:  </div>
+          <div class="patient">temp date</div>
+        </div>
+        <div class = "line1">
+          <div class="name_patient">Diagnosis:  </div>
+          <div class="patient">temp diag</div>
+        </div>
+    </div>
+    <div class="flexbox-item">
+        <div class = "line1">
+          <div class="name_patient">Name:  </div>
+          <div class="patient">temp patient</div>
+        </div>
+        <div class = "line1">
+          <div class="name_patient">Date:  </div>
+          <div class="patient">temp date</div>
+        </div>
+        <div class = "line1">
+          <div class="name_patient">Diagnosis:  </div>
+          <div class="patient">temp diag</div>
+        </div>
+    </div>
+
+    </div>
+  </div>
+  <script>
+    function redirectPres(){
+      location.href="{{url_for('newpres',email=email)}}";
+    }
+  </script>
 </body>
 </html>

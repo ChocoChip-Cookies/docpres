@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up</title>
   <style>
+    .loginbutton {
+			display: inline-block;
+			padding: .75rem 1.25rem;
+			border-radius: 10rem;
+			background-color: orange;
+			color: #fff;
+			text-transform: uppercase;
+			font-size: 1rem;
+			letter-spacing: .15rem;
+			transition: all .3s;
+			position: relative;
+			overflow: hidden;
+			z-index: 1;
+		}
     body{
       margin:0px;
       padding:0px;
@@ -80,11 +94,11 @@
 <body>
   <div class="box">
     <h1>Signup</h1>
-    <form action="#">
+    <form action="{{url_for('makeDoctor')}}" method="POST">
 
-    <input type="text" id="name" placeholder="Enter Name" class="inputfld" required>
-    <input type="text" id="hospital" placeholder="Enter Hospital Name" class="inputfld" required>
-    <select name="Proficiency" class="inputfld_select">
+    <input type="text" id="name" placeholder="Enter Name" class="inputfld" name="name" required>
+    <input type="text" id="hospital" placeholder="Enter Hospital Name" class="inputfld" name="hospital"required>
+    <select name="proficiency" class="inputfld_select">
       <option value="Cardiology">Choose Speciality</option>
       <option value="Cardiology">Cardiology</option>
       <option value="Pediatrics">Pediatrics</option>
@@ -101,15 +115,12 @@
       <option value="Anesthisiology">Anesthisiology</option>
 
     </select>
-    <input type="email" placeholder="Enter email" id="email" class="inputfld" required>
-    <button class="submit" type="submit" >Create Profile</button>
+    <input type="email" placeholder="Enter email" name="email" id="email" class="inputfld" required>
+    <button class="loginbutton" type="submit" >Create Profile</button>
     </form>
   </div>
   <script>
-    function goDoctor(){
-      
-      alert("submit")
-    }
+    
   </script>
 </body>
 </html>

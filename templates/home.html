@@ -197,7 +197,7 @@
 			flex-direction: column;
 			margin: 0px;
 			marding-left: 50px !important;
-			background-color: #2c3542;
+			background-color :#2c3542;
 			color: white;
 		}
 
@@ -213,23 +213,26 @@
 
 <body>
 	<div class="navbar">
-		<div class="logotitle"><b>DocPress</b></div>
-    <div class="logotitle"><button onclick="redirect()" class="loginbutton">Login</button></div>
+		<div class="logotitle"><b>DocPres</b></div>
+    <div class="logotitle"><button onclick="redirect_sign()" class="loginbutton">Login</button></div>
   </div>
   <div class="main">
     <div class="bg-text">
       <div class="cont">
         <h1>DocPres</h1>
-        <div style = "font-size: 1.5rem!important;">Faster the prescription.. Faster the recovery...</div>
-        <button onclick="redirect()" class="loginbutton_bottom">Join us!</button>
+        <div style = "font-size: 1.5rem!important;">Faster the prescription.. Faster the recovery...</div><br>
+        <button onclick="redirect_log()" class="loginbutton_bottom">Join us!</button>
       </div>
     </div>
   </div>
-  <div class = "p1">
-    <div class = "leftText">
-        <h1 style = "margin-bottom: 0.2;">Faster Prescriptions </h1>
-        <div style = "margin-top: 0;"> Ever spent a lot of time writing prescriptions?</div>
-        <div> Not anymore! DocPress enables you to write prescriptions in seconds...</div>
+  <div class = "p2">
+    <div class = "rightText">
+      <h1 style = "margin-bottom: 0.2;">Faster Prescriptions</h1>
+        <div style = "margin-top: 0;">  Ever spent a lot of time writing prescriptions?</div>
+        <div> Not anymore! DocPres enables you to write prescriptions in seconds.</div>
+    </div>
+    <div class = leftText>
+      <img src="../static/p1_1.png" class="img2">
     </div>
   </div>
   <div class = "p2">
@@ -238,13 +241,20 @@
     </div>
     <div class = "rightText">
       <h1 style = "margin-bottom: 0.2;">Easy to use!</h1>
-        <div style = "margin-top: 0;"> Now you can make prescriptions using just a few clicks...</div>
+        <div style = "margin-top: 0;"> Now you can make prescriptions using just a few clicks.
+          
+        </div>
+        <div>Simple and intuitive design.</div>
     </div>
   </div>
   <script>
-    function redirect(){
+    function redirect_sign(){
       //alert("Button pressed");
       location.href="{{url_for('login')}}"
+    }
+    function redirect_log(){
+      //alert("Button pressed");
+      location.href="{{url_for('signup')}}"
     }
   </script>
 </body>
