@@ -91,7 +91,19 @@ def dashboard(page,email):
   name=rows[0][0]
   proficiency=rows[0][2]
   hospital=rows[0][1]
-  cur.execute("SELECT * FROM presdetails WHERE docname=?",(name,))
+  try:
+    sort=request.args.get('sort')
+  except:
+    sort='des_date'
+  if sort=='des_date':
+    cur.execute("SELECT * FROM presdetails WHERE docname=? ORDER BY date_time_pres DESC",(name,))
+  elif sort=='asc_date':
+    cur.execute("SELECT * FROM presdetails WHERE docname=? ORDER BY date_time_pres",(name,))
+  elif sort=='des_name':
+    cur.execute("SELECT * FROM presdetails WHERE docname=? ORDER BY pname DESC",(name,))
+
+  else:
+    cur.execute("SELECT * FROM presdetails WHERE docname=? ORDER BY pname",(name,))
   lst = cur.fetchall()
 
   return render_template('dashboard.html',email=email,name=name,proficiency=proficiency,hospital=hospital, preshist = lst)
@@ -160,7 +172,7 @@ def printable(email,pid):
   cur.execute("SELECT * FROM presdetails WHERE pid=?",(pid,))
   date_time_pres = cur.fetchall()[0][8]
   conn.close()
-  return(render_template('printable.html',hospital=hospital,date = date_time_pres,pid = pid, name=pname, age= age,symptoms = symptoms,diagnosis=diagnosis,medlist = medlist, test = test))
+  return(render_template('printable.html',hospital=hospital,date = date_time_pres,pid = pid, name=pname, age= age,symptoms = symptoms,diagnosis=diagnosis,medlist = medlist, test = test,email=email))
 
 if __name__=="__main__":
     app.run(debug=True,host='0.0.0.0',port='5000')

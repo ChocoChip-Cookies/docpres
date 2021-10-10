@@ -113,7 +113,7 @@
 		<div class="logotitle"><b>New Prescription</b></div>
     
   </div>
-  <form class="myForm" action="{{url_for('makepres',email=email)}}" method="POST">
+  <form class="myForm" action="{{url_for('makepres',email=email)}}" method="POST" target="_blank" id="myForm">
     <div class="grp1">
       <div class="label">Name of Patient:</div>
       <input type="text" name="pname" class="inputfld" placeholder="Patient Name" autocomplete="off" required>
@@ -189,7 +189,7 @@
       </div>
     </div>
     <input type="button" class ="loginbutton" onclick="addMed()" value="Add Medicine"> 
-    <button type="submit" onclick="save()" class="loginbutton">Save</button>
+    <button type="submit" id="save" class="loginbutton">Save</button>
   </form>
   <script>
     var n=1
@@ -210,6 +210,6 @@
       
       document.getElementById("numofmed").value=n;
     }
-  </script>
+    </script>
 </body>
 </html>

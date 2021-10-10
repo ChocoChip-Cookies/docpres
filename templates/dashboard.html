@@ -12,7 +12,20 @@
 			font-family: Helvetica;
 			/*background-color:grey;*/
 		}
-
+    .sortsubmit {
+			display: inline-block;
+			padding: .75rem 1.25rem;
+			border-radius: 10rem;
+			background-color: orange;
+			color: #fff;
+			text-transform: uppercase;
+			font-size: 1rem;
+			letter-spacing: .15rem;
+			transition: all .3s;
+			position: relative;
+			overflow: hidden;
+			z-index: 1;
+		}
 		.navbar {
 			min-height: 2em;
 			padding: 1em;
@@ -195,12 +208,15 @@
     </div>
    
    </div>
-   <select name="Sort" class="inputfld_select">
-      <option value="asc_name">Date Ascending</option>
+   <form action="{{url_for('dashboard',page=3,email=email)}}">
+   <select name="sort" class="inputfld_select">
       <option value="des_date">Date Descending</option>
+      <option value="asc_date">Date Ascending</option>
       <option value="asc_name">Name Ascending</option>
       <option value="des_name">Name Descending</option>
     </select>
+    <button type="submit" class="sortsubmit">Sort</button>
+    <form>
   </div>
   <div class="flexbox_container">
     {% for pres in preshist %}

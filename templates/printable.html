@@ -135,10 +135,31 @@ table td{
 .tdclass{
 	font-size:11px;
 }
+.back{
+  position:absolute;
+  top:10px;
+  left:10px;
+  border-radius:5rem;
+  background-color:#2c3542;
+  color:white;
+  font-size:1em;
+  padding:10px;
+  
+}
+.back:hover{
+  box-shadow:0px 0px 5px black;
+  cursor:pointer;
+}
+@media print{
+  .back{
+    display: none !important;
+  }
+}
 </style>
 </head>
 <body>
 	<div class="container">
+    <div class="back" id="back">Back to Dashboard</div>
 		<header class="row">
 		  <div class="col-10">
 			<div class="doc-details">
@@ -236,5 +257,10 @@ table td{
 		<p style="font-size:12px;text-align:right;padding-bottom:15px;padding-right:25px;">- __________________________</p>
 		<p style="font-size:10px;text-align:center;padding-bottom:20px;">The greatest wealth is health</p>
 	  </div>
+    <script>
+      document.getElementById("back").onclick=()=>{
+        location.href = "{{url_for('dashboard',page=3,email = email)}}";
+      }
+    </script>
 </body>
 </html>
